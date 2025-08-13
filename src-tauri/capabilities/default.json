@@ -1,0 +1,13 @@
+{
+  "identifier": "default",
+  "description": "Default capabilities for desktop dev",
+  "platforms": ["windows", "linux", "macOS"],
+  "windows": ["main"],
+  "permissions": [
+    "fs:default",
+    "fs:allow-write-text-file",
+    "dialog:default"
+  ]
+}
+
+

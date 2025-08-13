@@ -1,0 +1,35 @@
+﻿# dependencies
+node_modules/
+.pnp/
+.pnp.js
+
+# production builds
+build/
+dist/
+.next/
+out/
+coverage/
+
+# editor/OS files
+.DS_Store
+Thumbs.db
+*.log
+
+# Vite/Tauri artifacts
+src-tauri/target/
+src-tauri/target/**
+**/*.pdb
+**/*.rmeta
+**/*.rlib
+**/*.dll
+**/*.exe
+**/*.obj
+**/*.lib
+**/*.exp
+**/*.ilk
+**/*.cache
+**/*.tmp
+
+# lock files (optional)
+yarn-error.log
+
