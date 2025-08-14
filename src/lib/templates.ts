@@ -1242,21 +1242,21 @@ export const REPORT_TEMPLATES: Record<string, ReportSection[]> = {
       fields: [{ id: 'comments', label: 'Comments', type: 'textarea', value: '' }],
     },
   ],
-  'CurrentTransformerTestATSReport.tsx': [
+  'CurrentTransformerPartialTestATSReport.tsx': [
     {
       id: 'job-info',
       title: 'Job Information',
       fields: [
-        { id: 'jobNumber', label: 'Job #', type: 'text', value: '' },
         { id: 'customerName', label: 'Customer', type: 'text', value: '' },
-        { id: 'customerAddress', label: 'Address', type: 'textarea', value: '' },
+        { id: 'jobNumber', label: 'Job #', type: 'text', value: '' },
         { id: 'technicians', label: 'Technicians', type: 'text', value: '' },
-        { id: 'substation', label: 'Substation', type: 'text', value: '' },
-        { id: 'eqptLocation', label: 'Equipment Location', type: 'text', value: '' },
         { id: 'date', label: 'Date', type: 'date', value: '' },
-        { id: 'userName', label: 'User', type: 'text', value: '' },
-        { id: 'temperatureF', label: 'Temp. °F', type: 'number', value: '' },
         { id: 'identifier', label: 'Identifier', type: 'text', value: '' },
+        { id: 'temperatureF', label: 'Temp', type: 'number', value: '' },
+        { id: 'humidity', label: 'Humidity', type: 'text', value: '' },
+        { id: 'substation', label: 'Substation', type: 'text', value: '' },
+        { id: 'eqptLocation', label: 'Eqpt. Location', type: 'text', value: '' },
+        { id: 'userName', label: 'User', type: 'text', value: '' },
       ],
     },
     {
@@ -1266,6 +1266,7 @@ export const REPORT_TEMPLATES: Record<string, ReportSection[]> = {
         { id: 'manufacturer', label: 'Manufacturer', type: 'text', value: '' },
         { id: 'class', label: 'Class', type: 'text', value: '' },
         { id: 'ctRatio', label: 'CT Ratio', type: 'text', value: '' },
+        { id: 'serialNumber', label: 'Serial #', type: 'text', value: '' },
         { id: 'catalogNumber', label: 'Catalog Number', type: 'text', value: '' },
         { id: 'voltageRating', label: 'Voltage Rating (V)', type: 'text', value: '' },
         { id: 'polarityFacing', label: 'Polarity Facing', type: 'text', value: '' },
@@ -1288,7 +1289,7 @@ export const REPORT_TEMPLATES: Record<string, ReportSection[]> = {
               { id: '7.10.1.A.3', description: 'Verify correct connection of transformers with system requirements.' },
               { id: '7.10.1.A.4', description: 'Verify that adequate clearances exist between primary and secondary circuit wiring.' },
               { id: '7.10.1.A.5', description: 'Verify the unit is clean.' },
-              { id: '7.10.1.A.6', description: 'Use of a low-resistance ohmmeter in accordance with Section 7.10.1.B.1.' },
+              { id: '7.10.1.A.6.1', description: 'Use of a low-resistance ohmmeter in accordance with Section 7.10.1.B.1.' },
               { id: '7.10.1.A.7', description: 'Verify that all required grounding and shorting connections provide contact.' },
               { id: '7.10.1.A.8', description: 'Verify appropriate lubrication on moving current-carrying parts and on moving and sliding surfaces.' },
             ]
@@ -1297,19 +1298,11 @@ export const REPORT_TEMPLATES: Record<string, ReportSection[]> = {
       ],
     },
     {
-      id: 'ct-identification',
-      title: 'CT Identification',
-      fields: [
-        { id: 'ctId', label: 'CT Identification', type: 'table', value: { rows: [] } },
-      ],
-    },
-    {
       id: 'electrical-tests',
       title: 'Electrical Tests',
       fields: [
-        { id: 'ratioPolarity', label: 'Ratio and Polarity', type: 'table', value: { rows: [] } },
-        { id: 'primaryInsulation', label: 'Primary Winding - 1 min. Insulation Resistance to Ground', type: 'table', value: {} },
-        { id: 'secondaryInsulation', label: 'Secondary Winding - 1 min. Insulation Resistance to Ground', type: 'table', value: {} },
+        { id: 'primaryInsulation', label: 'Primary Winding - 1 min. Insulation Resistance to Ground', type: 'table', value: { rows: [] } },
+        { id: 'secondaryInsulation', label: 'Secondary Winding - 1 min. Insulation Resistance to Ground', type: 'table', value: { rows: [] } },
       ],
     },
     {
@@ -1319,9 +1312,6 @@ export const REPORT_TEMPLATES: Record<string, ReportSection[]> = {
         { id: 'megohmmeter', label: 'Megohmmeter', type: 'text', value: '' },
         { id: 'serialNumber', label: 'Serial Number', type: 'text', value: '' },
         { id: 'ampId', label: 'AMP ID', type: 'text', value: '' },
-        { id: 'ctRatioTestSetName', label: 'CT Ratio Test Set', type: 'text', value: '' },
-        { id: 'ctRatioTestSetSerial', label: 'Serial Number', type: 'text', value: '' },
-        { id: 'ctRatioTestSetAmpId', label: 'AMP ID', type: 'text', value: '' },
       ],
     },
     {

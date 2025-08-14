@@ -76,7 +76,7 @@ export const REPORT_TYPES = [
   "13-VoltagePotentialTransformerTestMTSReport.tsx",
   "23-MediumVoltageMotorStarterMTSReport.tsx",
   "AutomaticTransferSwitchATSReport.tsx",
-  "CurrentTransformerTestATSReport.tsx",
+  "CurrentTransformerPartialTestATSReport.tsx",
   "DryTypeTransformerReport.tsx",
   "LargeDryTypeTransformerMTSReport.tsx",
   "LargeDryTypeTransformerReport.tsx",
