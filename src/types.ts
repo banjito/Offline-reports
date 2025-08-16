@@ -95,17 +95,17 @@ export const REPORT_TYPES = [
   "MediumVoltageCableVLFTestWithTanDeltaATS.tsx",
   "MediumVoltageCircuitBreakerMTSReport.tsx",
   "MediumVoltageCircuitBreakerReport.tsx",
-  "MediumVoltageSwitchOilReport.tsx",
+  // "MediumVoltageSwitchOilReport.tsx", // removed
   "MediumVoltageCableVLFMTSTestReport.tsx",
   "MediumVoltageCableVLFATSTest.tsx",
   "MetalEnclosedBuswayReport.tsx",
-  "OilInspectionReport.tsx",
+  // "OilInspectionReport.tsx", // removed
   "PanelboardReport.tsx",
   "SwitchgearPanelboardMTSReport.tsx",
   "SwitchgearReport.tsx",
   "TanDeltaATS.tsx",
   "TanDeltaChartMTS.tsx",
-  "TanDeltaTestMTSForm.tsx",
+  "Medium Voltage Cable VLF Test With Tan Delta MTS.tsx",
   "TwoSmallDryTypeXfmrATSReport.tsx",
   "TwoSmallDryTypeXfmrMTSReport.tsx"
 ];

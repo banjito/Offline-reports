@@ -19,6 +19,7 @@ import { VacuumBottleIntegrityTable } from './VacuumBottleIntegrityTable';
 import { AtsInsulationTable } from './AtsInsulationTable';
 import { AtsContactResistanceTable } from './AtsContactResistanceTable';
 import { DryTypeIRTables } from './DryTypeIRTables';
+import { DryTypeIRTablesSmall } from './DryTypeIRTablesSmall';
 import { DryTypeNameplate } from './DryTypeNameplate';
 import { BreakerDeviceSettingsTable } from './BreakerDeviceSettingsTable';
 import { BreakerContactResistanceTable } from './BreakerContactResistanceTable';
@@ -34,6 +35,8 @@ import { FuseRowsTable } from './FuseRowsTable';
 import { SwitchInsulationTables } from './SwitchInsulationTables';
 import { MotorStarterIrTables } from './MotorStarterIrTables';
 import { SwitchContactResistanceTable } from './SwitchContactResistanceTable';
+import { LowVoltageSwitchContactResistanceTable } from './LowVoltageSwitchContactResistanceTable';
+import { LowVoltageSwitchContactResistanceTableMulti } from './LowVoltageSwitchContactResistanceTableMulti';
 import { NetaReferenceTable } from './NetaReferenceTable';
 import { MvShieldContinuityTable } from './MvShieldContinuityTable';
 import { MvIrPrePostTables } from './MvIrPrePostTables';
@@ -154,6 +157,10 @@ export const FieldRow: React.FC<FieldRowProps> = ({ field, onUpdate, onDelete, r
                 const f = Number(field.value);
                 const c = Number.isFinite(f) ? convertFahrenheitToCelsius(f) : undefined;
                 const t = typeof c === 'number' ? getTCF(c) : undefined;
+                // Ensure global temp is set from existing value so dependent tables react on initial load
+                if (Number.isFinite(f)) {
+                  (window as any).__REPORT_TEMP_F = f;
+                }
                 if (typeof t === 'number') {
                   const prevT = (window as any).__REPORT_TCF;
                   if (prevT !== t) {
@@ -300,6 +307,16 @@ export const FieldRow: React.FC<FieldRowProps> = ({ field, onUpdate, onDelete, r
             <SwitchContactResistanceTable value={field.value} onChange={(next)=>updateField({ value: next })} />
           );
         }
+        if (field.id === 'switchContactLV') {
+          return (
+            <LowVoltageSwitchContactResistanceTable value={field.value} onChange={(next)=>updateField({ value: next })} />
+          );
+        }
+        if (field.id === 'switchContactLVMulti') {
+          return (
+            <LowVoltageSwitchContactResistanceTableMulti value={field.value} onChange={(next)=>updateField({ value: next })} />
+          );
+        }
         if (field.id === 'reactorCrFound' || field.id === 'reactorCrLeft') {
           const defaults = ['Reading'];
           const labels: [string,string,string] = ['A-Phase','B-Phase','C-Phase'];
@@ -383,6 +400,11 @@ export const FieldRow: React.FC<FieldRowProps> = ({ field, onUpdate, onDelete, r
             <DielectricWithstandClosedTable value={field.value} onChange={(next)=>updateField({ value: next })} />
           );
         }
+        if (field.id === 'dielectricWithstandClosed') {
+          return (
+            <DielectricWithstandClosedTable value={field.value} onChange={(next)=>updateField({ value: next })} />
+          );
+        }
         if (field.id === 'dielectricOpen') {
           return (
             <VfiSpecificTestsTable value={field.value} onChange={(next)=>updateField({ value: next })} />
@@ -420,6 +442,16 @@ export const FieldRow: React.FC<FieldRowProps> = ({ field, onUpdate, onDelete, r
           const tempF = (window as any).__REPORT_TEMP_F as number | undefined;
           return (
             <DryTypeIRTables
+              value={field.value}
+              onChange={(next) => updateField({ value: next })}
+              temperatureF={tempF}
+            />
+          );
+        }
+        if (field.id === 'dryTypeIrSmall') {
+          const tempF = (window as any).__REPORT_TEMP_F as number | undefined;
+          return (
+            <DryTypeIRTablesSmall
               value={field.value}
               onChange={(next) => updateField({ value: next })}
               temperatureF={tempF}

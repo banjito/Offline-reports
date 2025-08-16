@@ -1,0 +1,83 @@
+[1mdiff --git a/src/lib/templates.ts b/src/lib/templates.ts[m
+[1mindex b2b873e..109f643 100644[m
+[1m--- a/src/lib/templates.ts[m
+[1m+++ b/src/lib/templates.ts[m
+[36m@@ -1242,21 +1242,21 @@[m [mexport const REPORT_TEMPLATES: Record<string, ReportSection[]> = {[m
+       fields: [{ id: 'comments', label: 'Comments', type: 'textarea', value: '' }],[m
+     },[m
+   ],[m
+[31m-  'CurrentTransformerTestATSReport.tsx': [[m
+[32m+[m[32m  'CurrentTransformerPartialTestATSReport.tsx': [[m
+     {[m
+       id: 'job-info',[m
+       title: 'Job Information',[m
+       fields: [[m
+[31m-        { id: 'jobNumber', label: 'Job #', type: 'text', value: '' },[m
+         { id: 'customerName', label: 'Customer', type: 'text', value: '' },[m
+[31m-        { id: 'customerAddress', label: 'Address', type: 'textarea', value: '' },[m
+[32m+[m[32m        { id: 'jobNumber', label: 'Job #', type: 'text', value: '' },[m
+         { id: 'technicians', label: 'Technicians', type: 'text', value: '' },[m
+[31m-        { id: 'substation', label: 'Substation', type: 'text', value: '' },[m
+[31m-        { id: 'eqptLocation', label: 'Equipment Location', type: 'text', value: '' },[m
+         { id: 'date', label: 'Date', type: 'date', value: '' },[m
+[31m-        { id: 'userName', label: 'User', type: 'text', value: '' },[m
+[31m-        { id: 'temperatureF', label: 'Temp. °F', type: 'number', value: '' },[m
+         { id: 'identifier', label: 'Identifier', type: 'text', value: '' },[m
+[32m+[m[32m        { id: 'temperatureF', label: 'Temp', type: 'number', value: '' },[m
+[32m+[m[32m        { id: 'humidity', label: 'Humidity', type: 'text', value: '' },[m
+[32m+[m[32m        { id: 'substation', label: 'Substation', type: 'text', value: '' },[m
+[32m+[m[32m        { id: 'eqptLocation', label: 'Eqpt. Location', type: 'text', value: '' },[m
+[32m+[m[32m        { id: 'userName', label: 'User', type: 'text', value: '' },[m
+       ],[m
+     },[m
+     {[m
+[36m@@ -1266,6 +1266,7 @@[m [mexport const REPORT_TEMPLATES: Record<string, ReportSection[]> = {[m
+         { id: 'manufacturer', label: 'Manufacturer', type: 'text', value: '' },[m
+         { id: 'class', label: 'Class', type: 'text', value: '' },[m
+         { id: 'ctRatio', label: 'CT Ratio', type: 'text', value: '' },[m
+[32m+[m[32m        { id: 'serialNumber', label: 'Serial #', type: 'text', value: '' },[m
+         { id: 'catalogNumber', label: 'Catalog Number', type: 'text', value: '' },[m
+         { id: 'voltageRating', label: 'Voltage Rating (V)', type: 'text', value: '' },[m
+         { id: 'polarityFacing', label: 'Polarity Facing', type: 'text', value: '' },[m
+[36m@@ -1288,7 +1289,7 @@[m [mexport const REPORT_TEMPLATES: Record<string, ReportSection[]> = {[m
+               { id: '7.10.1.A.3', description: 'Verify correct connection of transformers with system requirements.' },[m
+               { id: '7.10.1.A.4', description: 'Verify that adequate clearances exist between primary and secondary circuit wiring.' },[m
+               { id: '7.10.1.A.5', description: 'Verify the unit is clean.' },[m
+[31m-              { id: '7.10.1.A.6', description: 'Use of a low-resistance ohmmeter in accordance with Section 7.10.1.B.1.' },[m
+[32m+[m[32m              { id: '7.10.1.A.6.1', description: 'Use of a low-resistance ohmmeter in accordance with Section 7.10.1.B.1.' },[m
+               { id: '7.10.1.A.7', description: 'Verify that all required grounding and shorting connections provide contact.' },[m
+               { id: '7.10.1.A.8', description: 'Verify appropriate lubrication on moving current-carrying parts and on moving and sliding surfaces.' },[m
+             ][m
+[36m@@ -1296,20 +1297,12 @@[m [mexport const REPORT_TEMPLATES: Record<string, ReportSection[]> = {[m
+         }[m
+       ],[m
+     },[m
+[31m-    {[m
+[31m-      id: 'ct-identification',[m
+[31m-      title: 'CT Identification',[m
+[31m-      fields: [[m
+[31m-        { id: 'ctId', label: 'CT Identification', type: 'table', value: { rows: [] } },[m
+[31m-      ],[m
+[31m-    },[m
+     {[m
+       id: 'electrical-tests',[m
+       title: 'Electrical Tests',[m
+       fields: [[m
+[31m-        { id: 'ratioPolarity', label: 'Ratio and Polarity', type: 'table', value: { rows: [] } },[m
+[31m-        { id: 'primaryInsulation', label: 'Primary Winding - 1 min. Insulation Resistance to Ground', type: 'table', value: {} },[m
+[31m-        { id: 'secondaryInsulation', label: 'Secondary Winding - 1 min. Insulation Resistance to Ground', type: 'table', value: {} },[m
+[32m+[m[32m        { id: 'primaryInsulation', label: 'Primary Winding - 1 min. Insulation Resistance to Ground', type: 'table', value: { rows: [] } },[m
+[32m+[m[32m        { id: 'secondaryInsulation', label: 'Secondary Winding - 1 min. Insulation Resistance to Ground', type: 'table', value: { rows: [] } },[m
+       ],[m
+     },[m
+     {[m
+[36m@@ -1319,9 +1312,6 @@[m [mexport const REPORT_TEMPLATES: Record<string, ReportSection[]> = {[m
+         { id: 'megohmmeter', label: 'Megohmmeter', type: 'text', value: '' },[m
+         { id: 'serialNumber', label: 'Serial Number', type: 'text', value: '' },[m
+         { id: 'ampId', label: 'AMP ID', type: 'text', value: '' },[m
+[31m-        { id: 'ctRatioTestSetName', label: 'CT Ratio Test Set', type: 'text', value: '' },[m
+[31m-        { id: 'ctRatioTestSetSerial', label: 'Serial Number', type: 'text', value: '' },[m
+[31m-        { id: 'ctRatioTestSetAmpId', label: 'AMP ID', type: 'text', value: '' },[m
+       ],[m
+     },[m
+     {[m

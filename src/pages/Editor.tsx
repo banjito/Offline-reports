@@ -33,6 +33,23 @@ export const Editor: React.FC = () => {
     const duplicate = searchParams.get('duplicate');
     const isNew = searchParams.get('isNew');
 
+    const migrateDraftIfNeeded = (incoming: ReportDraft): ReportDraft => {
+      // Only migrate LowVoltageSwitchReport contact resistance field id
+      if (incoming.reportType === 'LowVoltageSwitchReport.tsx') {
+        const migratedSections = incoming.sections.map((section) => ({
+          ...section,
+          fields: section.fields.map((f) => {
+            if (f.id === 'switchContact') {
+              return { ...f, id: 'switchContactLV' };
+            }
+            return f;
+          }),
+        }));
+        return { ...incoming, sections: migratedSections };
+      }
+      return incoming;
+    };
+
     if (duplicate) {
       // Duplicate existing draft
       const original = await getDraft(duplicate);
@@ -44,13 +61,13 @@ export const Editor: React.FC = () => {
           updatedAt: now(),
           version: 1
         };
-        setDraft(newDraft);
+        setDraft(migrateDraftIfNeeded(newDraft));
       }
     } else if (draftId && !isNew) {
       // Load existing draft
       const existingDraft = await getDraft(draftId);
       if (existingDraft) {
-        setDraft(existingDraft);
+        setDraft(migrateDraftIfNeeded(existingDraft));
       } else {
         alert('Draft not found');
         navigate('/');

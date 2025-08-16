@@ -102,7 +102,7 @@ export const REPORT_TEMPLATES: Record<string, ReportSection[]> = {
       ] } },
     ]},
     { id: 'electrical-tests-ir', title: 'Electrical Tests - Measured Insulation Resistance', fields: [
-      { id: 'dryTypeIr', label: 'Insulation Resistance', type: 'table', value: {} },
+      { id: 'dryTypeIrSmall', label: 'Insulation Resistance', type: 'table', value: {} },
     ]},
     { id: 'electrical-tests-ttr', title: 'Electrical Tests - Turns Ratio', fields: [
       { id: 'turnsRatioSmallDry', label: 'Turns Ratio', type: 'table', value: {} },
@@ -143,7 +143,7 @@ export const REPORT_TEMPLATES: Record<string, ReportSection[]> = {
       ] } },
     ]},
     { id: 'electrical-tests-ir', title: 'Electrical Tests - Measured Insulation Resistance', fields: [
-      { id: 'dryTypeIr', label: 'Insulation Resistance', type: 'table', value: {} },
+      { id: 'dryTypeIrSmall', label: 'Insulation Resistance', type: 'table', value: {} },
     ]},
     { id: 'electrical-tests-ttr', title: 'Electrical Tests - Turns Ratio', fields: [
       { id: 'turnsRatioSmallDry', label: 'Turns Ratio', type: 'table', value: {} },
@@ -380,7 +380,7 @@ export const REPORT_TEMPLATES: Record<string, ReportSection[]> = {
       ],
     },
   ],
-  'TanDeltaTestMTSForm.tsx': [
+  'Medium Voltage Cable VLF Test With Tan Delta MTS.tsx': [
     {
       id: 'job-info',
       title: 'Job Information',
@@ -655,8 +655,8 @@ export const REPORT_TEMPLATES: Record<string, ReportSection[]> = {
       id: 'dielectric',
       title: 'Electrical Tests - Dielectric Withstand',
       fields: [
-        { id: 'dielectricClosed', label: 'Dielectric Withstand (Closed)', type: 'table', value: {} },
-        { id: 'dielectricOpen', label: 'Vacuum Bottle Integrity (Open)', type: 'table', value: {} },
+        { id: 'dielectricWithstandClosed', label: 'Dielectric Withstand (Breaker In Closed Position)', type: 'table', value: {} },
+        { id: 'vacuumBottleIntegrity', label: 'Vacuum Bottle Integrity (Breaker In Open Position)', type: 'table', value: {} },
       ],
     },
     {
@@ -753,8 +753,8 @@ export const REPORT_TEMPLATES: Record<string, ReportSection[]> = {
       id: 'dielectric',
       title: 'Electrical Tests - Dielectric Withstand',
       fields: [
-        { id: 'dielectricClosed', label: 'Dielectric Withstand (Closed)', type: 'table', value: {} },
-        { id: 'dielectricOpen', label: 'Vacuum Bottle Integrity (Open)', type: 'table', value: {} },
+        { id: 'dielectricWithstandClosed', label: 'Dielectric Withstand (Breaker In Closed Position)', type: 'table', value: {} },
+        { id: 'vacuumBottleIntegrity', label: 'Vacuum Bottle Integrity (Breaker In Open Position)', type: 'table', value: {} },
       ],
     },
     {
@@ -777,148 +777,6 @@ export const REPORT_TEMPLATES: Record<string, ReportSection[]> = {
       title: 'Comments',
       fields: [ { id: 'comments', label: 'Comments', type: 'textarea', value: '' } ],
     },
-  ],
-  'MediumVoltageSwitchOilReport.tsx': [
-    {
-      id: 'job-info',
-      title: 'Job Information',
-      fields: [
-        { id: 'customer', label: 'Customer', type: 'text', value: '' },
-        { id: 'jobNumber', label: 'Job #', type: 'text', value: '' },
-        { id: 'address', label: 'Address', type: 'text', value: '' },
-        { id: 'identifier', label: 'Identifier', type: 'text', value: '' },
-        { id: 'technicians', label: 'Technicians', type: 'text', value: '' },
-        { id: 'substation', label: 'Substation', type: 'text', value: '' },
-        { id: 'date', label: 'Date', type: 'date', value: '' },
-        { id: 'eqptLocation', label: 'Eqpt. Location', type: 'text', value: '' },
-        { id: 'temperatureF', label: 'Temperature (°F)', type: 'number', value: 68 },
-        { id: 'humidity', label: 'Humidity (%)', type: 'number', value: 50 },
-      ],
-    },
-    {
-      id: 'nameplate',
-      title: 'Nameplate Data',
-      fields: [
-        { id: 'manufacturer', label: 'Manufacturer', type: 'text', value: '' },
-        { id: 'systemVoltage', label: 'System Voltage (kV)', type: 'text', value: '' },
-        { id: 'catalogNumber', label: 'Catalog No.', type: 'text', value: '' },
-        { id: 'ratedVoltage', label: 'Rated Voltage (kV)', type: 'text', value: '' },
-        { id: 'serialNumber', label: 'Serial Number', type: 'text', value: '' },
-        { id: 'ratedCurrent', label: 'Rated Current (A)', type: 'text', value: '' },
-        { id: 'dateOfMfg', label: 'Date of Mfg.', type: 'text', value: '' },
-        { id: 'aicRating', label: 'AIC Rating (kA)', type: 'text', value: '' },
-        { id: 'type', label: 'Type', type: 'text', value: '' },
-        { id: 'impulseLevelBIL', label: 'Impulse Level (BIL)', type: 'text', value: '' },
-      ],
-    },
-    {
-      id: 'vfi-data',
-      title: 'VFI Data',
-      fields: [
-        { id: 'vfiManufacturer', label: 'Manufacturer', type: 'text', value: '' },
-        { id: 'vfiRatedVoltage', label: 'Rated Voltage (kV)', type: 'text', value: '' },
-        { id: 'vfiCatalogNo', label: 'Catalog No.', type: 'text', value: '' },
-        { id: 'vfiRatedCurrent', label: 'Rated Current (A)', type: 'text', value: '' },
-        { id: 'vfiType', label: 'Type', type: 'text', value: '' },
-        { id: 'vfiAicRating', label: 'AIC Rating (kA)', type: 'text', value: '' },
-      ],
-    },
-    {
-      id: 'electrical-tests-insulation',
-      title: 'Electrical Tests - Insulation Resistance',
-      fields: [
-        { id: 'mvSwitchIr', label: 'Measured & Temperature Corrected', type: 'table', value: {} },
-      ],
-    },
-    {
-      id: 'contact-resistance',
-      title: 'Contact Resistance μΩ',
-      fields: [
-        { id: 'mvSwitchCr', label: 'Contact Resistance', type: 'table', value: {} },
-      ],
-    },
-    {
-      id: 'dielectric',
-      title: 'Electrical Tests - Dielectric Withstand',
-      fields: [
-        { id: 'mvWithstand', label: 'Dielectric Withstand', type: 'table', value: {} },
-      ],
-    },
-    {
-      id: 'dielectric-vfi',
-      title: 'Electrical Tests - Dielectric Withstand - VFI specific tests',
-      fields: [
-        { id: 'dielectricOpen', label: 'VFI Specific Tests', type: 'table', value: {} },
-      ],
-    },
-    {
-      id: 'test-equipment',
-      title: 'Test Equipment Used',
-      fields: [
-        { id: 'testEquipment3', label: 'Test Equipment Used', type: 'table', value: {} },
-      ],
-    },
-    {
-      id: 'comments',
-      title: 'Comments',
-      fields: [
-        { id: 'comments', label: 'Comments', type: 'textarea', value: '' },
-      ],
-    },
-  ],
-  'OilInspectionReport.tsx': [
-    { id: 'job-info', title: 'Job Information', fields: [
-      { id: 'customer', label: 'Customer', type: 'text', value: '' },
-      { id: 'jobNumber', label: 'Job #', type: 'text', value: '' },
-      { id: 'address', label: 'Address', type: 'text', value: '' },
-      { id: 'identifier', label: 'Identifier', type: 'text', value: '' },
-      { id: 'technicians', label: 'Technicians', type: 'text', value: '' },
-      { id: 'substation', label: 'Substation', type: 'text', value: '' },
-      { id: 'date', label: 'Date', type: 'date', value: '' },
-      { id: 'eqptLocation', label: 'Eqpt. Location', type: 'text', value: '' },
-      { id: 'temperatureF', label: 'Temp. °F', type: 'number', value: 68 },
-      { id: 'humidity', label: 'Humidity (%)', type: 'number', value: 50 },
-    ]},
-    { id: 'nameplate', title: 'Nameplate Data', fields: [
-      { id: 'dry-nameplate', label: 'Nameplate Data', type: 'table', value: {} },
-    ]},
-    { id: 'visual-mechanical', title: 'Visual and Mechanical Inspection', fields: [
-      { id: 'vm-table', label: 'Visual and Mechanical Inspection', type: 'table', value: { rows: [
-        { id: '7.2.1.2.A.1', description: 'Verify physical and mechanical condition.' },
-        { id: '7.2.1.2.A.2', description: 'Verify anchorage, alignment, and grounding.' },
-        { id: '7.2.1.2.A.3*', description: 'Examine bolted electrical connections.' },
-        { id: '7.2.1.2.A.4', description: 'Verify cleanliness.' },
-        { id: '7.2.1.2.A.5*', description: 'Verify electrical and mechanical interlocks.' },
-        { id: '7.2.1.2.A.6', description: 'Inspect wiring and connections.' },
-        { id: '7.2.1.2.A.7', description: 'Inspect control devices.' },
-        { id: '7.2.1.2.A.8', description: 'Inspect auxiliary devices.' },
-        { id: '7.2.1.2.A.9', description: 'Verify space heaters.' },
-        { id: '7.2.1.2.A.10', description: 'Verify enclosure and nameplates.' },
-        { id: '7.2.1.2.A.11', description: 'Inspect insulation, wiring, and terminations.' },
-      ] } },
-    ]},
-    { id: 'ir', title: 'Electrical Tests - Insulation Resistance', fields: [
-      { id: 'dryTypeIr', label: 'Insulation Resistance (Measured & Temp Corrected)', type: 'table', value: {} },
-    ]},
-    { id: 'ttr', title: 'Turns Ratio Tests (TTR)', fields: [
-      { id: 'turnsRatio', label: 'Turns Ratio', type: 'table', value: {} },
-    ]},
-    { id: 'wr-primary', title: 'Electrical Tests - Winding Resistance - Primary Side', fields: [
-      { id: 'wrPrimary', label: 'Winding Resistance - Primary', type: 'table', value: {} },
-    ]},
-    { id: 'wr-secondary', title: 'Electrical Tests - Winding Resistance - Secondary Side', fields: [
-      { id: 'wrSecondary', label: 'Winding Resistance - Secondary', type: 'table', value: {} },
-    ]},
-    { id: 'excitation', title: 'Excitation Tests', fields: [
-      { id: 'excitationTests', label: 'Excitation Tests', type: 'table', value: {} },
-    ]},
-    { id: 'power-factor', title: 'Power Factor Tests', fields: [
-      { id: 'powerFactorTests', label: 'Power Factor Tests', type: 'table', value: {} },
-    ]},
-    { id: 'test-equipment', title: 'Test Equipment Used', fields: [
-      { id: 'testEquipment3', label: 'Test Equipment Used', type: 'table', value: {} },
-    ]},
-    { id: 'comments', title: 'Comments', fields: [ { id: 'comments', label: 'Comments', type: 'textarea', value: '' } ]},
   ],
   'MediumVoltageCableVLFMTSTestReport.tsx': [
     {
@@ -1620,6 +1478,7 @@ export const REPORT_TEMPLATES: Record<string, ReportSection[]> = {
         { id: 'operatingVoltageKV', label: 'Operating Voltage (kV)', type: 'text', value: '' },
         { id: 'ampacity', label: 'Ampacity (A)', type: 'text', value: '' },
         { id: 'impulseRatingBIL', label: 'Impulse Rating (BIL)', type: 'text', value: '' },
+        { id: 'eGap', label: 'E-Gap', type: 'table', value: {} },
       ],
     },
     {
@@ -2244,6 +2103,8 @@ export const REPORT_TEMPLATES: Record<string, ReportSection[]> = {
       title: 'Nameplate Data',
       fields: [
         { id: 'dry-nameplate', label: 'Nameplate', type: 'table', value: {} },
+        { id: 'fluidType', label: 'Fluid Type', type: 'text', value: '' },
+        { id: 'fluidVolume', label: 'Fluid Volume (gal)', type: 'text', value: '' },
       ],
     },
     {
@@ -2799,7 +2660,7 @@ export const REPORT_TEMPLATES: Record<string, ReportSection[]> = {
       id: 'electrical-tests-contact',
       title: 'Electrical Tests - Contact Resistance',
       fields: [
-        { id: 'switchContact', label: 'Contact Resistance', type: 'table', value: {} },
+        { id: 'switchContactLVMulti', label: 'Contact Resistance', type: 'table', value: {} },
       ],
     },
     {
@@ -2923,7 +2784,7 @@ export const REPORT_TEMPLATES: Record<string, ReportSection[]> = {
       fields: [
         { id: 'numberOfCircuitSpaces', label: '# of circuit spaces', type: 'number', value: 20 },
         { id: 'electricalTestOrdering', label: 'Ordering', type: 'text', value: 'Sequential' },
-        { id: 'tripCurveNumbers', label: 'Trip Curve #’s', type: 'text', value: '' },
+        { id: 'tripCurveNumbers', label: 'Trip Curve #\'s', type: 'text', value: '' },
         { id: 'panelboardBreakers', label: 'Breakers', type: 'table', value: {} },
       ],
     },
@@ -3105,7 +2966,7 @@ export const REPORT_TEMPLATES: Record<string, ReportSection[]> = {
     {
       id: 'withstand',
       title: 'Electrical Tests - Withstand Test',
-      fields: [ { id: 'mvWithstand', label: 'Withstand', type: 'table', value: {} } ],
+      fields: [ { id: 'vlfWithstand', label: 'Withstand', type: 'table', value: {} } ],
     },
     {
       id: 'tan-delta',
@@ -3191,7 +3052,7 @@ export const REPORT_TEMPLATES: Record<string, ReportSection[]> = {
       id: 'electrical-tests-contact',
       title: 'Electrical Tests - Contact Resistance',
       fields: [
-        { id: 'switchContact', label: 'Contact Resistance', type: 'table', value: {} },
+        { id: 'switchContactLV', label: 'Contact Resistance', type: 'table', value: {} },
       ],
     },
     {
